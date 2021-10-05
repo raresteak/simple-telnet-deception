@@ -10,8 +10,7 @@ python3 ./simple-telnet-deception.py
 ```
 
 ## Output 
-Logged to the FILE variable in json format.  Fields time, src.ip, username, password.
-Example:
+Logged to a file and shown on the screen in json format.  Example:
 ```
 { "time": "05-2021-10T10:36:59", "src.ip": "127.0.0.1", "username": "maintenance", "password": "powerdown"}
 { "time": "05-2021-10T10:37:09", "src.ip": "127.0.0.1", "username": "root", "password": "password"}
