@@ -13,7 +13,6 @@ FILE = "stn-results.json"
 fh = open(FILE, "a")
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    # Fix for OSError: [Errno 48] Address already in use when ctrl-c out of script
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     s.bind((HOST, PORT))
     s.listen()
@@ -46,7 +45,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                             conn.sendall(b'\b \b')
                             break
                     break
-            output = str("{" + timeNow.strftime('%d-%Y-%mT%H:%M:%S') + "," + addr[0] + "," + username + "," + password + "}")
             output = str("{ \"time\": \"" + timeNow.strftime('%d-%Y-%mT%H:%M:%S') + "\", \"src.ip\": \"" + addr[0] + "\", \"username\": \"" + username + "\", \"password\": \"" + password + "\"}")
             print(output)
             fh.write(output + "\n")
