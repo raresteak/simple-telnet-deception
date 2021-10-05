@@ -1,5 +1,5 @@
 # simple-telnet-deception
-A low interaction telnet deception written in Python3 logs username and password input
+A low interaction telnet honeypot/deception written in Python3, logs username and password input
 
 ## Usage
 1. Update HOST, PORT, FILE variables.
