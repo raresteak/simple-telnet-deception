@@ -46,7 +46,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                             break
                     break
             output = str("{ \"time\": \""
-                         + timeNow.strftime('%d-%Y-%mT%H:%M:%S')
+                         + timeNow.strftime('%Y-%m-%dT%H:%M:%S')
                          + "\", \"src.ip\": \"" + addr[0]
                          + "\", \"username\": \"" + username
                          + "\", \"password\": \"" + password + "\" }")
