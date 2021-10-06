@@ -12,8 +12,8 @@ python3 ./simple-telnet-deception.py
 ## Output 
 Logged to a file and shown on the screen in json format.  Example:
 ```
-{ "time": "05-2021-10T10:36:59", "src.ip": "127.0.0.1", "username": "maintenance", "password": "powerdown"}
-{ "time": "05-2021-10T10:37:09", "src.ip": "127.0.0.1", "username": "root", "password": "password"}
-{ "time": "05-2021-10T10:37:18", "src.ip": "127.0.0.1", "username": "toor", "password": "toor"}
-{ "time": "05-2021-10T10:37:26", "src.ip": "127.0.0.1", "username": "user", "password": "cancelledInput"}
+{ "time": "2021-10-06T16:55:29", "src.ip": "127.0.0.1", "username": "root", "password": "password" }
+{ "time": "2021-10-06T16:55:35", "src.ip": "127.0.0.1", "username": "toor", "password": "toor" }
+{ "time": "2021-10-06T16:55:40", "src.ip": "127.0.0.1", "username": "user", "password": "cancelledInput" }
+{ "time": "2021-10-06T16:55:44", "src.ip": "127.0.0.1", "username": "cancelledInput", "password": "cancelledInput" }
 ```
