@@ -2,8 +2,8 @@
 # purpose: Mimics a simple telnet daemon login prompts and records output
 # starts a tcp listener on port and address with variables defined below
 # author: Raresteak
-# date: 5 October 2021
-# version: 1
+# date: 6 October 2021
+# version: 2
 import datetime
 import socket
 
@@ -47,9 +47,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     break
             output = str("{ \"time\": \""
                          + timeNow.strftime('%d-%Y-%mT%H:%M:%S')
-                         + "\", \"src.ip\": \""
-                         + addr[0] + "\", \"username\": \""
-                         + username + "\", \"password\": \""
-                         + password + "\"}")
+                         + "\", \"src.ip\": \"" + addr[0]
+                         + "\", \"username\": \"" + username
+                         + "\", \"password\": \"" + password + "\" }")
             print(output)
             fh.write(output + "\n")
