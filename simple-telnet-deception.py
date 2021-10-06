@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-#purpose: Mimics a simple telnet daemon login prompts and records output
-# starts a tcp listener on port and address with variables defined below 
-#author: Raresteak
-#date: 5 October 2021
-#version: 1
+# purpose: Mimics a simple telnet daemon login prompts and records output
+# starts a tcp listener on port and address with variables defined below
+# author: Raresteak
+# date: 5 October 2021
+# version: 1
 import datetime
 import socket
 
@@ -29,7 +29,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 else:
                     try:
                         username = data.decode("utf-8").rstrip()
-                    except:
+                    except UnicodeDecodeError:
                         username = "cancelledInput"
                     conn.send(b'Password: ')
                     password = ""
@@ -40,12 +40,16 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                         else:
                             try:
                                 password = data.decode("utf-8").rstrip()
-                            except:
+                            except UnicodeDecodeError:
                                 password = "cancelledInput"
                             conn.sendall(b'\b \b')
                             break
                     break
-            output = str("{ \"time\": \"" + timeNow.strftime('%d-%Y-%mT%H:%M:%S') + "\", \"src.ip\": \"" + addr[0] + "\", \"username\": \"" + username + "\", \"password\": \"" + password + "\"}")
+            output = str("{ \"time\": \""
+                         + timeNow.strftime('%d-%Y-%mT%H:%M:%S')
+                         + "\", \"src.ip\": \""
+                         + addr[0] + "\", \"username\": \""
+                         + username + "\", \"password\": \""
+                         + password + "\"}")
             print(output)
             fh.write(output + "\n")
-
