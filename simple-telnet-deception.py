@@ -3,12 +3,12 @@
 # starts a tcp listener on port and address with variables defined below
 # author: Raresteak
 # date: 6 October 2021
-# version: 2
+# version: 3
 import datetime
 import socket
 
 HOST = '127.0.0.1'
-PORT = 8023
+PORT = 2323
 FILE = "stn-results.json"
 fh = open(FILE, "a")
 
@@ -20,7 +20,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         conn, addr = s.accept()
         with conn:
             timeNow = datetime.datetime.now()
-            conn.send(b'Login: ')
+            conn.send(b'Warning: Telnet is not a secure protocol, and it is recommended to use Stelnet.\n\nLogin authentication\n\n\nUsername: ')
             username = ""
             while True:
                 data = conn.recv(1024)
